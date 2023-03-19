@@ -56,8 +56,8 @@ export default function Categories({
       {isSuccess ? (
         <div className="relative ml-auto">
           <Combobox.Input
-            className="w-full rounded-md border-2 border-gray-500 bg-slate-50 py-2 pl-3 pr-10 font-medium shadow-sm focus:border-cyan-500 
-            focus:outline-none focus:ring-1 focus:ring-cyan-500 dark:border-slate-400 dark:bg-slate-900"
+            className="w-full rounded-md border-2 border-gray-500 bg-slate-50 py-2 pl-3 pr-10 font-medium shadow-sm 
+            focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500 dark:border-slate-400  dark:bg-slate-900 focus:dark:border-cyan-500"
             onChange={(event) => setQuery(event.target.value)}
             defaultValue={questionsConfig.categoryID}
             displayValue={(categoryID: number) => {

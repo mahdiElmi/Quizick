@@ -63,7 +63,7 @@ function App() {
     >
       <nav
         className={clsx(
-          "pb pointer-events-none fixed flex w-full justify-center rounded-b-md pt-5 pb-2 backdrop-blur-none ",
+          "pointer-events-none fixed z-50 flex w-full  justify-center rounded-b-md pt-5 pb-2 backdrop-blur-none ",
           currentStatus !== Status.Home &&
             " pointer-events-auto backdrop-blur-sm"
         )}

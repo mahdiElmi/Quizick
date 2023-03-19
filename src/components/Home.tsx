@@ -12,7 +12,7 @@ export default function Home({
   return (
     <motion.section
       layout
-      className="flex h-full w-full flex-col place-items-center text-3xl tracking-tight sm:max-w-3xl"
+      className="flex h-full w-full flex-col place-items-center self-center text-3xl tracking-tight sm:max-w-3xl"
     >
       <motion.h1
         layout

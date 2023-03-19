@@ -50,7 +50,9 @@ export default function OptionsRadioGroup({
             value={option}
             className={({ checked, active }) =>
               clsx(
-                checked ? "border-cyan-500" : "border-slate-300",
+                checked
+                  ? "border-cyan-500"
+                  : "border-slate-500 dark:border-slate-400",
                 "relative cursor-pointer rounded-lg border-2 bg-slate-50 p-3 focus:outline-none dark:bg-slate-900"
               )
             }

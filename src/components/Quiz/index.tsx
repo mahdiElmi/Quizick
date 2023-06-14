@@ -32,16 +32,6 @@ export default function Quiz({
   });
 
   const {
-    data: sessionToken,
-    remove: removeSessionToken,
-    isLoading: isLoadingSessionToken,
-  } = useQuery<string>({
-    queryKey: ["sessionToken"],
-    queryFn: getSessionToken,
-    onSuccess: (data) => sessionStorage.setItem("sessionToken", data),
-  });
-
-  const {
     data: questions,
     isFetching: isFetchingQuestions,
     isLoading: isLoadingQuestions,
@@ -49,10 +39,10 @@ export default function Quiz({
     isSuccess: isSuccessQuestions,
     refetch: refetchQuestions,
     remove: removeQuestions,
+    status,
   } = useQuery<QuizApiResponseObject[]>({
-    enabled: !!sessionToken,
-    queryKey: ["questions", sessionToken, questionsConfig],
-    queryFn: () => getQuestions(questionsConfig, sessionToken!),
+    queryKey: ["questions", questionsConfig],
+    queryFn: () => getQuestions(questionsConfig),
     onSuccess: (questions) => {
       setAnswerIndex(GenerateCorrectAnswerPositions(questions));
       if (questionsConfig.gameMode === "Classic")
@@ -65,9 +55,11 @@ export default function Quiz({
     confettiReward2();
   }
 
-  if (isSuccessQuestions && questions.length < 1) removeSessionToken();
+  if (isSuccessQuestions && questions.length < 1) {
+    refetchQuestions();
+  }
 
-  if (isFetchingQuestions || isLoadingQuestions || isLoadingSessionToken)
+  if (isFetchingQuestions || isLoadingQuestions)
     return (
       <Loading
         questionCount={questionsConfig.count}
@@ -85,8 +77,8 @@ export default function Quiz({
 
   return (
     <>
-      <span id="confettiID" className=" absolute top-2 left-2 bg-black" />
-      <span id="confettiID2" className="absolute  top-2 right-2 bg-black" />
+      <span id="confettiID" className=" absolute left-2 top-2 bg-black" />
+      <span id="confettiID2" className="absolute  right-2 top-2 bg-black" />
       {questionsConfig.gameMode === "Classic" ? (
         <ClassicQuiz
           questions={questions}
@@ -117,17 +109,10 @@ function GenerateCorrectAnswerPositions(questions: QuizApiResponseObject[]) {
   return positions;
 }
 
-function getSessionToken() {
-  return axios
-    .get("https://opentdb.com/api_token.php?command=request")
-    .then(({ data }) => data.token);
-}
-
-function getQuestions(questionsConfig: QuestionsConfig, sessionToken: string) {
+function getQuestions(questionsConfig: QuestionsConfig) {
   return axios
     .get(
       `https://opentdb.com/api.php?
-         token=${sessionToken}&
          amount=${questionsConfig.count}&
          category=${questionsConfig.categoryID}&
          difficulty=${questionsConfig.difficulty}&

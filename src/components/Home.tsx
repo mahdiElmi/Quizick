@@ -1,7 +1,7 @@
 import { HomeProps, Status } from "../interfaces";
 import GameModeRadioGroup from "./GameModeRadioGroup";
 import SimpleRadioGroup from "./SimpleRadioGroup";
-import Categories from "./Categories/Categories";
+import Categories from "./Categories";
 import { motion } from "framer-motion";
 
 export default function Home({
@@ -16,7 +16,7 @@ export default function Home({
     >
       <motion.h1
         layout
-        className="mt-12 w-max bg-gradient-to-br from-cyan-500 to-cyan-700 bg-clip-text px-2 text-7xl font-black uppercase tracking-tighter text-transparent sm:mt-8 sm:mb-5 sm:text-9xl"
+        className="mt-12 w-max bg-gradient-to-br from-cyan-500 to-cyan-700 bg-clip-text px-2 text-7xl font-black uppercase tracking-tighter text-transparent sm:mb-5 sm:mt-8 sm:text-9xl"
       >
         quizick
       </motion.h1>
@@ -68,7 +68,7 @@ export default function Home({
         layout="position"
         whileTap={{ scale: 0.95 }}
         whileHover={{ scale: 1.05 }}
-        className="group relative mt-7 mb-2 w-4/6 overflow-clip rounded-xl bg-cyan-400 px-7 py-3 text-2xl font-bold tracking-tighter drop-shadow-xl transition-all hover:bg-cyan-300 active:ring-4  dark:bg-cyan-600 dark:hover:bg-cyan-500"
+        className="group relative mb-2 mt-7 w-4/6 overflow-clip rounded-xl bg-cyan-400 px-7 py-3 text-2xl font-bold tracking-tighter drop-shadow-xl transition-all hover:bg-cyan-300 active:ring-4 dark:bg-cyan-600 dark:hover:bg-cyan-500"
         onClick={() => setCurrentStatus(Status.Quiz)}
       >
         <span className="group absolute inset-0 h-full w-full scale-x-0 rounded-xl bg-white/30 group-hover:animate-shine" />

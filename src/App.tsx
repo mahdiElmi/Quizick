@@ -63,9 +63,9 @@ function App() {
     >
       <nav
         className={clsx(
-          "pointer-events-none fixed z-50 flex w-full  justify-center rounded-b-md pt-5 pb-2 backdrop-blur-none ",
+          "pointer-events-none fixed z-50 flex w-full justify-center rounded-b-md pb-2 pt-5 backdrop-blur-none ",
           currentStatus !== Status.Home &&
-            " pointer-events-auto backdrop-blur-sm"
+            "pointer-events-auto backdrop-blur-sm"
         )}
       >
         <div
@@ -78,13 +78,10 @@ function App() {
         >
           {currentStatus !== Status.Home && (
             <button
-              className=" rounded-full transition-all hover:brightness-110 "
+              className="rounded-full transition-all hover:brightness-110 "
               onClick={() => {
                 queryClient.invalidateQueries({
-                  queryKey: [
-                    "questions",
-                    sessionStorage.getItem("sessionToken"),
-                  ],
+                  queryKey: ["questions"],
                 });
                 setCurrentStatus(Status.Home);
               }}
@@ -129,7 +126,7 @@ function App() {
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="currentColor"
-                    className="absolute top-0 right-0 h-4 fill-blue-500 sm:h-4"
+                    className="absolute right-0 top-0 h-4 fill-blue-500 sm:h-4"
                   >
                     <path
                       fillRule="evenodd"
@@ -180,7 +177,7 @@ function App() {
           setCurrentStatus={setCurrentStatus}
         />
       ) : (
-        <motion.div layout className=" min-h-full w-full max-w-7xl ">
+        <motion.div layout className="min-h-full w-full max-w-7xl ">
           <Quiz questionsConfig={questionsConfig} />
         </motion.div>
       )}

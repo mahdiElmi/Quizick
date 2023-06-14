@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { QuestionsConfig } from "../../interfaces";
+import { QuestionsConfig } from "../interfaces";
 import { useState } from "react";
 import { Combobox } from "@headlessui/react";
 import clsx from "clsx";

@@ -3,11 +3,7 @@ interface LoadingProps {
   isLightning: boolean;
 }
 
-export default function Loading({
-  questionCount,
-
-  isLightning,
-}: LoadingProps) {
+export default function Loading({ questionCount, isLightning }: LoadingProps) {
   if (isLightning)
     return (
       <section className="flex min-h-full w-full max-w-7xl flex-col items-center justify-center py-10 transition-all">
@@ -28,10 +24,10 @@ export default function Loading({
               <div className="my-3 h-6 w-5/12 rounded-full bg-slate-500/75 " />
             </div>
             <div className="grid w-full grid-cols-2 justify-center gap-x-5 text-2xl font-medium">
-              <div className=" my-3 flex h-12 w-full place-items-center justify-center gap-2 rounded-full bg-slate-500/50 py-4 px-6" />
-              <div className=" my-3 flex h-12 w-full place-items-center justify-center gap-2 rounded-full bg-slate-500/50 py-4 px-6" />
-              <div className=" my-3 flex h-12 w-full place-items-center justify-center gap-2 rounded-full bg-slate-500/50 py-4 px-6" />
-              <div className=" my-3 flex h-12 w-full place-items-center justify-center gap-2 rounded-full bg-slate-500/50 py-4 px-6" />
+              <div className=" my-3 flex h-12 w-full place-items-center justify-center gap-2 rounded-full bg-slate-500/50 px-6 py-4" />
+              <div className=" my-3 flex h-12 w-full place-items-center justify-center gap-2 rounded-full bg-slate-500/50 px-6 py-4" />
+              <div className=" my-3 flex h-12 w-full place-items-center justify-center gap-2 rounded-full bg-slate-500/50 px-6 py-4" />
+              <div className=" my-3 flex h-12 w-full place-items-center justify-center gap-2 rounded-full bg-slate-500/50 px-6 py-4" />
             </div>
           </div>
         </div>
@@ -49,22 +45,22 @@ export default function Loading({
           <div className="mb-10 mt-2 grid w-full grid-cols-2 flex-row place-items-center text-xl sm:grid-cols-[repeat(4,fit-content(50%))]">
             <div
               className={
-                "m-4 flex h-12 w-36 rounded-full bg-slate-500/50 py-4 px-10 sm:w-16 md:w-32"
+                "m-4 flex h-12 w-36 rounded-full bg-slate-500/50 px-10 py-4 sm:w-16 md:w-32"
               }
             />
             <div
               className={
-                "m-4 flex h-12 w-36 rounded-full bg-slate-500/50 py-4 px-10 sm:w-16 md:w-32"
+                "m-4 flex h-12 w-36 rounded-full bg-slate-500/50 px-10 py-4 sm:w-16 md:w-32"
               }
             />
             <div
               className={
-                "m-4 flex h-12 w-36 rounded-full bg-slate-500/50 py-4 px-10 sm:w-16 md:w-32"
+                "m-4 flex h-12 w-36 rounded-full bg-slate-500/50 px-10 py-4 sm:w-16 md:w-32"
               }
             />
             <div
               className={
-                "m-4 flex h-12 w-36 rounded-full bg-slate-500/50 py-4 px-10 sm:w-16 md:w-32"
+                "m-4 flex h-12 w-36 rounded-full bg-slate-500/50 px-10 py-4 sm:w-16 md:w-32"
               }
             />
           </div>
